@@ -1,12 +1,24 @@
+body
+{
+    margin: 0;
+}
+hr
+{
+    width: 15%;
+    border-color: rgb(255, 182, 46);
+}
 h1
 {
     text-align: center;
     font-weight: 700;
+    font-size: 100px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 0;
 }
 #mainDiv
 {
     display: flex;
-	justify-content: space-around;
+	justify-content: center;
 	align-items: center;
 }
 .about_Us
@@ -15,6 +27,7 @@ h1
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+    margin: 0 50px;
 }
 .pic
 {
@@ -26,4 +39,5 @@ h1
 {
     width: 25px;
     height: 25px;
+    background-color: rgb(255, 183, 49);
 }
