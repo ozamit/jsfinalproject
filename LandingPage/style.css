@@ -1,0 +1,29 @@
+h1
+{
+    text-align: center;
+    font-weight: 700;
+}
+#mainDiv
+{
+    display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.about_Us
+{
+    display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.pic
+{
+    width: 150px;
+    height: 150px;
+    border-radius: 25%;
+}
+.icon
+{
+    width: 25px;
+    height: 25px;
+}
