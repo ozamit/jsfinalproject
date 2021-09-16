@@ -1,0 +1,44 @@
+#main
+{
+    border-style: solid;
+    display: inline-block;
+    width: 201px;
+    height: 367px;
+}
+#screen
+{
+    background-color: black;
+    color: white;
+    height: 101px;
+    width: 195px;
+}
+.rows
+{
+    display: flex;
+    align-items:center; 
+    border-style: solid;
+    border-width: thin;
+}
+.num
+{
+    display: inline-block;
+    background-color: darkgrey;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    font-weight: 900;
+}
+.calcOp /* Calculation operations */
+{
+    display: inline-block;
+    background-color: darkorange;
+    color: white;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    font-weight: 900;
+}
+#num0
+{
+    padding-right: 100px;
+}
