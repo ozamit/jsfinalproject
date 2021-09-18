@@ -3,15 +3,22 @@
     border-style: solid;
     display: inline-block;
     width: 201px;
-    height: 367px;
+    height: 361px;
 }
+
 #screen
 {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-end;
     background-color: black;
     color: white;
     height: 101px;
-    width: 195px;
+    width: 201px;
+    margin: 0;
+    font-size: xx-large;
 }
+
 .rows
 {
     display: flex;
@@ -19,26 +26,56 @@
     border-style: solid;
     border-width: thin;
 }
+
 .num
 {
-    display: inline-block;
+    display: flex;
+    align-items:center;
+    justify-content:center;
     background-color: darkgrey;
     height: 50px;
     width: 50px;
-    text-align: center;
     font-weight: 900;
+    border-right-style: solid;
+    border-right-width: thin;
 }
+
+.num:hover
+{
+    opacity: 0.7;
+}
+.num:active
+{
+    opacity: 0.5;
+}
+
+#num0
+{
+    padding-right: 100px;
+    border-right-style: solid;
+    border-right-width: thin;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+}
+
 .calcOp /* Calculation operations */
 {
-    display: inline-block;
+    display: flex;
+    align-items:center;
+    justify-content:center;
     background-color: darkorange;
     color: white;
     height: 50px;
     width: 50px;
-    text-align: center;
     font-weight: 900;
 }
-#num0
+
+.calcOp:hover
 {
-    padding-right: 100px;
+    opacity: 0.7;
+}
+.calcOp:active
+{
+    opacity: 0.5;
 }
