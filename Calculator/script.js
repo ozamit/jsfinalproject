@@ -92,8 +92,8 @@ function funAct()
                 sum = sum*sum;
             else
                 {
-                    if(firstOp == calcOp[0].innerText) // עדיין לא עובד 100%
-                        if(lstNumInt == 0 || sum == 0)
+                    if(firstOp == calcOp[0].innerText)
+                        if(lstNumInt == 0)
                             return "Can't divide by 0"
                         else
                             sumHezka = lstNumInt*lstNumInt / sum;
