@@ -77,6 +77,9 @@ nums[12].addEventListener('click',(event) => // button number 0
 function funAct()
 {
     if(op == calcOp[0].innerText)
+        if(lstNumInt == 0)
+            return "Can't divide by 0"
+        else
             sum /= lstNumInt;
     else if(op == calcOp[1].innerText)
             sum *= lstNumInt;
@@ -89,8 +92,11 @@ function funAct()
                 sum = sum*sum;
             else
                 {
-                    if(firstOp == calcOp[0].innerText)
-                        sumHezka = lstNumInt*lstNumInt / sum;
+                    if(firstOp == calcOp[0].innerText) // עדיין לא עובד 100%
+                        if(lstNumInt == 0 || sum == 0)
+                            return "Can't divide by 0"
+                        else
+                            sumHezka = lstNumInt*lstNumInt / sum;
                     if(firstOp == calcOp[1].innerText)
                         sumHezka = lstNumInt*lstNumInt * sum;
                     if(firstOp == calcOp[2].innerText)
