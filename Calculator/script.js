@@ -168,4 +168,4 @@ calcOp[4].addEventListener('click',(event) => // =
     screen.innerText = funAct();
     lstNumInt = 0 , sumHezka = 0;
     op = "" , lstNum = "" , firstOp = "";
-});d
+});
