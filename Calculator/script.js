@@ -53,8 +53,6 @@ nums[12].addEventListener('click',(event) => // button number 0
 {
     funSum(0);
 });
-
-//מבצע את תהליך האופרטור הלחוץ
 function funAct()
 {
     if(op == calcOp[0].innerText)
@@ -69,7 +67,7 @@ function funAct()
     else if(op == calcOp[3].innerText)
             sum += lstNumInt;
     else if(op == nums[2].innerText) // מבצע את פעולת חזקה
-            if(lstNumInt == 0)
+            if(lstNum == "")
                 sum = sum*sum;
             else
                 {
