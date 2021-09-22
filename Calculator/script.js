@@ -1,27 +1,8 @@
 let nums = document.getElementsByClassName('num');
 let calcOp = document.getElementsByClassName('calcOp');
 let screen = document.getElementById('screen');
-let sum = 0, lstNumInt = 0 , sumHezka = 0 , ahoz = 0;
+let sum = 0, lstNumInt = 0 , sumHezka = 0;
 let lstNum = "" , op = "" , firstOp = "";
-
-nums[0].addEventListener('click',(event) => // Clear button
-{
-    screen.innerText = 0;
-    sum = 0 , lstNumInt = 0 , sumHezka = 0 , ahoz = 0;
-    op = "" , lstNum = "" , firstOp = "";
-});
-
-nums[1].addEventListener('click',(event) => // %
-{
-    screen.innerText += nums[1].innerText;
-    ahoz = sum*lstNumInt/100;
-});
-
-nums[2].addEventListener('click',(event) => // ²
-{
-    screen.innerText += nums[2].innerText.charAt(1);
-    op = nums[2].innerText;
-});
 
 nums[3].addEventListener('click',(event) => // button number 7
 {
@@ -87,27 +68,42 @@ function funAct()
             sum -= lstNumInt;
     else if(op == calcOp[3].innerText)
             sum += lstNumInt;
-    else if(op == nums[2].innerText)
+    else if(op == nums[2].innerText) // מבצע את פעולת חזקה
             if(lstNumInt == 0)
                 sum = sum*sum;
             else
                 {
                     if(firstOp == calcOp[0].innerText)
                         if(lstNumInt == 0)
-                            return "Can't divide by 0"
+                            return "Can't divide by 0";
                         else
                             sumHezka = lstNumInt*lstNumInt / sum;
-                    if(firstOp == calcOp[1].innerText)
-                        sumHezka = lstNumInt*lstNumInt * sum;
-                    if(firstOp == calcOp[2].innerText)
-                        sumHezka = lstNumInt*lstNumInt - sum;
-                    if(firstOp == calcOp[3].innerText)
-                        sumHezka = lstNumInt*lstNumInt + sum;
+                    else if(firstOp == calcOp[1].innerText)
+                            sumHezka = lstNumInt*lstNumInt * sum;
+                    else if(firstOp == calcOp[2].innerText)
+                            sumHezka = lstNumInt*lstNumInt - sum;
+                    else if(firstOp == calcOp[3].innerText)
+                            sumHezka = lstNumInt*lstNumInt + sum;
                     return sumHezka;
-                }     
+                }
+    else // מבצע את פעולת האחוז
+    {
+            if(firstOp == calcOp[0].innerText)
+                if(lstNumInt == 0)
+                    return "Can't divide by 0";
+                else
+                    sum = sum/lstNumInt/100;
+            else if(firstOp == calcOp[1].innerText)
+                sum = sum*lstNumInt/100;
+            else if(firstOp == calcOp[2].innerText)
+                sum = sum-lstNumInt/100;
+            else if(firstOp == calcOp[3].innerText)
+                sum = sum+lstNumInt/100;        
+    }
     return sum;
 }
-function funSum(lastClick) // מבצע סיכום כל פעם איזה מספר רצה המשתמש ליצור
+
+function funSum(lastClick) // מבצע סיכום כל פעם איזה מספר רצה המשתמש ליצור בין לפני ובין אחרי האופרטור
 {
     if(screen.innerText == "0")
         screen.innerText = "";
@@ -123,6 +119,25 @@ function funSum(lastClick) // מבצע סיכום כל פעם איזה מספר 
         lstNumInt = parseInt(lstNum);
     }
 }
+
+nums[0].addEventListener('click',(event) => // Clear button
+{
+    screen.innerText = 0;
+    sum = 0 , lstNumInt = 0 , sumHezka = 0;
+    op = "" , lstNum = "" , firstOp = "";
+});
+
+nums[1].addEventListener('click',(event) => // %
+{
+    screen.innerText += nums[1].innerText;
+    op = nums[1].innerText;
+});
+
+nums[2].addEventListener('click',(event) => // ²
+{
+    screen.innerText += nums[2].innerText.charAt(1);
+    op = nums[2].innerText;
+});
 
 calcOp[0].addEventListener('click',(event) => // ÷
 {
@@ -150,12 +165,7 @@ calcOp[3].addEventListener('click',(event) => // +
 });
 calcOp[4].addEventListener('click',(event) => // =
 {
-    if(sumHezka == 0 && ahoz == 0)
-        screen.innerText = funAct();
-    else if(sumHezka != 0)
-        screen.innerText = sumHezka;
-    else
-        screen.innerText = ahoz;
-    lstNumInt = 0 , sumHezka = 0 , ahoz = 0;
+    screen.innerText = funAct();
+    lstNumInt = 0 , sumHezka = 0;
     op = "" , lstNum = "" , firstOp = "";
-});
+});d
