@@ -82,7 +82,7 @@ function funAct()
                             sumHezka = lstNumInt*lstNumInt - sum;
                     else if(firstOp == calcOp[3].innerText)
                             sumHezka = lstNumInt*lstNumInt + sum;
-                    return sumHezka;
+                    sum = sumHezka;
                 }
     else // מבצע את פעולת האחוז
     {
