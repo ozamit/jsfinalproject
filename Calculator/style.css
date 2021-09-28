@@ -4,6 +4,7 @@
     display: inline-block;
     width: 201px;
     height: 361px;
+    font-family: 'Gemunu Libre', sans-serif;
 }
 
 #screen
@@ -13,10 +14,22 @@
 	align-items: flex-end;
     background-color: black;
     color: white;
-    height: 101px;
+    height: 71px;
     width: 201px;
     margin: 0;
-    font-size: xx-large;
+    font-size: 50px;
+}
+
+#upper-screen {
+    display: flex;
+	justify-content: flex-start;
+	align-items: flex-end;
+    background-color: black;
+    color: white;
+    height: 30px;
+    width: 201px;
+    margin: 0;
+    font-size: 35px;
 }
 
 .rows
@@ -39,7 +52,9 @@
     font-weight: 900;
     border-right-style: solid;
     border-right-width: thin;
+    cursor: pointer;
 }
+
 
 .num:hover
 {
@@ -70,13 +85,55 @@
     height: 50px;
     width: 50px;
     font-weight: 900;
+    cursor: pointer;
+}
+
+.op_btn {
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    background-color: darkorange;
+    color: white;
+    height: 50px;
+    width: 50px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.clr_btn {
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    background-color: darkorange;
+    color: white;
+    height: 50px;
+    width: 50px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.prc_btn {
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    background-color: darkorange;
+    color: white;
+    height: 50px;
+    width: 50px;
+    font-weight: 900;
+    cursor: pointer;
 }
 
 .calcOp:hover
 {
     opacity: 0.7;
 }
-.calcOp:active
+.op_btn:active
 {
     opacity: 0.5;
+}
+
+.op_btn:hover
+{
+    opacity: 0.7;
 }
