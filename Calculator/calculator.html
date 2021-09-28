@@ -4,37 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="main">
         <div>
+            <p id="upper-screen"></p>
             <p id="screen">0</p>
         </div>
         <div class="rows">
             <label class="num">C</label>
             <label class="num">%</label> 
             <label class="num">X&sup2;</label>
-            <label class="calcOp">&divide;</label>
+            <label class="op_btn" class="calcOp">/</label>
         </div>
         <div class="rows">
             <label class="num">7</label>
             <label class="num">8</label>
             <label class="num">9</label>
-            <label class="calcOp">&times;</label>
+            <label class="op_btn" class="calcOp">*</label>
         </div>
         <div class="rows">
             <label class="num">4</label>
             <label class="num">5</label>
             <label class="num">6</label>
-            <label class="calcOp">&minus;</label>
+            <label class="op_btn" class="calcOp">-</label>
         </div>
         <div class="rows">
             <label class="num">1</label>
             <label class="num">2</label>
             <label class="num">3</label>
-            <label class="calcOp">&plus;</label>
+            <label class="op_btn" class="calcOp">+</label>
         </div>
         <div class="rows">
             <label class="num" id="num0">0</label>
