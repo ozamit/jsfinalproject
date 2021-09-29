@@ -1,10 +1,20 @@
+body {
+    margin: 0;
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+    background-image: url("../Login/images/BG-9.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 #main
 {
-    border-style: solid;
+    /*border-style: solid;*/
     display: inline-block;
     width: 201px;
     height: 361px;
     font-family: 'Gemunu Libre', sans-serif;
+    margin: auto;
 }
 
 #screen
@@ -36,9 +46,12 @@
 {
     display: flex;
     align-items:center; 
-    border-style: solid;
-    border-width: thin;
+    /*border-style: solid;
+    border-width: thin;*/
 	font-size: x-large;
+    margin: 0.5px;
+
+
 }
 
 .num
@@ -50,9 +63,10 @@
     height: 50px;
     width: 50px;
     font-weight: 900;
-    border-right-style: solid;
-    border-right-width: thin;
+    /*border-right-style: solid;
+    border-right-width: thin;*/
     cursor: pointer;
+    margin: 0.5px;
 }
 
 
@@ -68,11 +82,12 @@
 #num0
 {
     padding-right: 100px;
-    border-right-style: solid;
-    border-right-width: thin;
+    /*border-right-style: solid;
+    border-right-width: thin;*/
     display: flex;
     align-items:center;
     justify-content:center;
+    margin: 0.5px;
 }
 
 .calcOp /* Calculation operations */
@@ -86,54 +101,11 @@
     width: 50px;
     font-weight: 900;
     cursor: pointer;
-}
+    margin: 0.5px;
 
-.op_btn {
-    display: flex;
-    align-items:center;
-    justify-content:center;
-    background-color: darkorange;
-    color: white;
-    height: 50px;
-    width: 50px;
-    font-weight: 900;
-    cursor: pointer;
-}
-
-.clr_btn {
-    display: flex;
-    align-items:center;
-    justify-content:center;
-    background-color: darkorange;
-    color: white;
-    height: 50px;
-    width: 50px;
-    font-weight: 900;
-    cursor: pointer;
-}
-
-.prc_btn {
-    display: flex;
-    align-items:center;
-    justify-content:center;
-    background-color: darkorange;
-    color: white;
-    height: 50px;
-    width: 50px;
-    font-weight: 900;
-    cursor: pointer;
 }
 
 .calcOp:hover
-{
-    opacity: 0.7;
-}
-.op_btn:active
-{
-    opacity: 0.5;
-}
-
-.op_btn:hover
 {
     opacity: 0.7;
 }
