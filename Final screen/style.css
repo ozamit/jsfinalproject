@@ -6,6 +6,8 @@ body {
     background-repeat: no-repeat;
 }
 
+
+/* HEADER */
 .header {
     display: flex;
     align-items: center;
@@ -39,6 +41,7 @@ body {
     margin: 0 20px 0 10px;
 }
 
+/* MAIN */
 .content {
     display: flex;
     justify-content: center;
@@ -75,7 +78,6 @@ body {
     border-top-left-radius: 0%;
     border-top-right-radius: 25%;
     margin-top: 2px;
-    
 }
 
 .share_btn a {
@@ -95,6 +97,8 @@ body {
     color: black;
 }
 
+
+/* POPUP */
 #popup-back {
     display: none;
     position: fixed;
@@ -114,9 +118,15 @@ body {
     height: 300px;
     z-index: 2;
     transform: translate(-50%,-50%);
-    background-color: cornflowerblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: white;
+    border-radius: 10%;
     text-align: center;
-
+    margin-top: 5vh;
+    align-items: center;
+    box-shadow: 12px 12px 10px 0px rgba(0,0,0,0.30);
 }
 
 #close {
@@ -130,7 +140,44 @@ body {
     border-radius: 50%;
 }
 
+#close:hover {
+    background-color: black;
+    color: #ffffff;
+}
 
+::placeholder {
+    font-family: 'Montserrat', sans-serif;
+}
+
+fieldset {
+    border-color: transparent;
+}
+
+fieldset {
+    border-color: transparent;
+}
+
+input {
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 30px;
+    font-size: 16px;
+}
+
+#submit {
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+    background-color: #007DFE;
+    color: white;
+    padding: 10px 85px;
+}
+
+#submit:hover {
+    background-color: #0b4d8f;
+}
+
+/* TOOLTIP */
 .share_btn .tooltiptext {
     visibility: hidden;
     width: 120px;
@@ -141,8 +188,6 @@ body {
     padding: 5px 0;
     margin-left: 70px;
     margin-top: 12px;
-  
-    /* Position the tooltip */
     position: absolute;
     z-index: 1;
   }
@@ -150,4 +195,4 @@ body {
 
 .share_btn:hover .tooltiptext {
     visibility: visible;
-  }
+}
