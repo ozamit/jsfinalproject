@@ -2,14 +2,13 @@ body {
     margin: 0;
     display: flex;
     font-family: 'Montserrat', sans-serif;
-    background-image: url("../Login/images/BG-9.jpg");
+    background-image: url(images/BG-9.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 #main
 {
-    /*border-style: solid;*/
     display: inline-block;
     width: 201px;
     height: 361px;
@@ -24,7 +23,7 @@ body {
 	align-items: flex-end;
     background-color: black;
     color: white;
-    height: 71px;
+    height: 100px;
     width: 201px;
     margin: 0;
     font-size: 50px;
@@ -46,12 +45,8 @@ body {
 {
     display: flex;
     align-items:center; 
-    /*border-style: solid;
-    border-width: thin;*/
 	font-size: x-large;
     margin: 0.5px;
-
-
 }
 
 .num
@@ -63,12 +58,9 @@ body {
     height: 50px;
     width: 50px;
     font-weight: 900;
-    /*border-right-style: solid;
-    border-right-width: thin;*/
     cursor: pointer;
     margin: 0.5px;
 }
-
 
 .num:hover
 {
@@ -82,8 +74,6 @@ body {
 #num0
 {
     padding-right: 100px;
-    /*border-right-style: solid;
-    border-right-width: thin;*/
     display: flex;
     align-items:center;
     justify-content:center;
