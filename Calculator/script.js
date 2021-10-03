@@ -139,9 +139,9 @@ function funAct() // מבצע את תהליך האופרטור הלחוץ
 
 function funSum(lastClick) // מבצע סיכום כל פעם איזה מספר רצה המשתמש ליצור בין לפני ובין אחרי האופרטור
 {
-    if(screen.innerText == "0") // אצחול הצג בכדי שספרת 0 לא תשורשר
+    if(screen.innerText == "0") // אתחול הצג בכדי שספרת 0 לא תשורשר
         screen.innerText = "";
-    if(sumAll[sumAll.length-1] == screen.innerText) // מבצע אתחול מחדש של המסך
+    if(sumAll[sumAll.length-1] == screen.innerText) // מבצע אתחול מחדש של המסך לאחר סיום כל תרגיל
     {
         screen.innerText = lastClick;
         sum = parseInt(screen.innerText);
