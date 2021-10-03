@@ -1,0 +1,153 @@
+body {
+    margin: 0;
+    font-family: 'Gemunu Libre', sans-serif;
+    background-image: url("../Login/images/BG-9.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    height: 50px;
+    box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.75);
+}
+
+.log_plus_prjname{
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+}
+
+.user_details{
+        display: flex;
+        align-items: center;
+}
+
+.profile_pic {
+    width: 35px;
+    height: 35px;
+}
+
+#user_name{
+    margin: 0 20px 0 10px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+}
+
+.history {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: white;
+    width: 50vw;
+    height: 60vh;
+    margin-top: 15vh;
+    padding-bottom: 25px;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 12px 12px 10px 0px rgba(0,0,0,0.30);
+}
+
+.btns_set {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.share_btn {
+    position: relative;
+    width: 60px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ebebeb;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 25%;
+    border-top-left-radius: 0%;
+    border-top-right-radius: 25%;
+    margin-top: 2px;
+    
+}
+
+.share_btn a {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    top: calc(50% - 11px);
+    left: calc(50% - 11px);
+}
+
+.share_btn:hover {
+    background-color: #ffffff;
+}
+
+.share_btn:hover .fa-whatsapp {
+    color: black;
+}
+
+#popup-back {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.75);
+    z-index: 1;
+}
+
+#popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    z-index: 2;
+    transform: translate(-50%,-50%);
+    background-color: cornflowerblue;
+    text-align: center;
+
+}
+
+#close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    border: 0px;
+    border-radius: 50%;
+}
+
+
+.share_btn .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    margin-left: 70px;
+    margin-top: 12px;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+  
+
+.share_btn:hover .tooltiptext {
+    visibility: visible;
+  }
