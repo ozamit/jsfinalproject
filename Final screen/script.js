@@ -34,9 +34,16 @@ console.log(email);
 user_name.innerText = name + " | " + email;
 
 
+// שמירת ערכי טופס השיתוף והעברתם עם הלינק
 
-// file:///C:/fullstack/fullstackcourse/jsfinalproject/Final%20screen/index.html?name=amit&email=myemail@gmail.com
+let targil_field = document.getElementById("targil");
+let targil_value = "";
+let email_field = document.getElementById("eMail");
+let email_value = "";
+let submitBtn = document.getElementById("submit")
 
-
-//shared_url = url + "&parameter="
-//console.log(shared_url)
+submitBtn.addEventListener ("click", (event) => {
+    targil_value = targil_field.value;
+    email_value = email_field.value;
+    console.log(targil_value + " - " + email_value); // לצורך בקרה בלבד
+})
