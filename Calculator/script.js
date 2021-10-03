@@ -175,3 +175,26 @@ function funSum(lastClick) // מבצע סיכום כל פעם איזה מספר 
         lstNumInt = parseInt(lstNum);
     }
 }
+
+// *** POPUP ***
+let popup_back = document.getElementById('popup-back');
+
+let url = window.location.href;
+
+if (url.includes("share")){
+    popup_back.style.display = "block";
+}
+
+// הדפסת פרטי המשתמש בהאדר
+
+let queryString = window.location.search;
+console.log(queryString);
+
+const urlParams = new URLSearchParams(queryString);
+
+let name = urlParams.get('name')
+console.log(name);
+let email = urlParams.get('email')
+console.log(email);
+
+user_name.innerText = name + " | " + email;
