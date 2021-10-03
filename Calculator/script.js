@@ -132,11 +132,11 @@ function funAct() // מבצע את תהליך האופרטור הלחוץ
             else if(op == "*")
                 sum = sum*lstNumInt/100;
             else if(op == "-")
-                sum = sum-lstNumInt/100;
+                sum = sum - (sum*lstNumInt/100);
             else if(op == "+")
-                sum = sum+lstNumInt/100;   
+                sum = sum+(sum*lstNumInt/100);   
         }
-        else // אם האופרטור השני עם חזקה
+        else // אם האופרטור הראשון עם חזקה
         {
             if(op == "/")
             if(lstNumInt == 0)
@@ -146,9 +146,9 @@ function funAct() // מבצע את תהליך האופרטור הלחוץ
             else if(op == "*")
                 sum = sum*sum*lstNumInt/100;
             else if(op == "-")
-                sum = (sum*sum)-(lstNumInt/100);
+                sum = (sum*sum)-(sum*lstNumInt/100);
             else if(op == "+")
-                sum = (sum*sum)+(lstNumInt/100);   
+                sum = (sum*sum)+(sum*lstNumInt/100);   
         }
     }   
     return sum;
