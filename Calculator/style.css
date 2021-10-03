@@ -1,19 +1,60 @@
 body {
     margin: 0;
-    display: flex;
     font-family: 'Montserrat', sans-serif;
-    background-image: url(images/BG-9.jpg);
+    background-image: url("../Login/images/BG-9.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
 
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    height: 50px;
+    box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.75);
+}
+
+.log_plus_prjname{
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+}
+
+.user_details{
+        display: flex;
+        align-items: center;
+}
+
+.profile_pic {
+    width: 35px;
+    height: 35px;
+}
+
+#user_name{
+    margin: 0 20px 0 10px;
+}
+
 #main
 {
+    /*border-style: solid;*/
     display: inline-block;
-    width: 201px;
-    height: 361px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 230px;
+    height: 381px;
     font-family: 'Gemunu Libre', sans-serif;
     margin: auto;
+    background: linear-gradient(#22577A, #38A3A5);
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+    box-shadow: 12px 12px 10px 0px rgba(0,0,0,0.30);
 }
 
 #screen
@@ -21,32 +62,40 @@ body {
 	display: flex;
 	justify-content: flex-start;
 	align-items: flex-end;
-    background-color: black;
+    /*background-color: black;*/
     color: white;
-    height: 100px;
-    width: 201px;
+    height: 71px;
+    width: 220px;
     margin: 0;
     font-size: 50px;
+    border-bottom: 2px solid #57CC99;
+    padding: 0 0 10px 10px;
 }
 
 #upper-screen {
     display: flex;
 	justify-content: flex-start;
 	align-items: flex-end;
-    background-color: black;
+    /*background-color: black;*/
     color: white;
     height: 30px;
-    width: 201px;
+    width: 220px;
     margin: 0;
     font-size: 35px;
+    padding: 10px 0 0 10px;
 }
 
 .rows
 {
     display: flex;
+    justify-content: space-between;
     align-items:center; 
+    /*border-style: solid;
+    border-width: thin;*/
 	font-size: x-large;
     margin: 0.5px;
+
+
 }
 
 .num
@@ -54,17 +103,22 @@ body {
     display: flex;
     align-items:center;
     justify-content:center;
-    background-color: darkgrey;
+    /*background-color: darkgrey;*/
     height: 50px;
-    width: 50px;
+    width: 60px;
     font-weight: 900;
+    /*border-right-style: solid;
+    border-right-width: thin;*/
     cursor: pointer;
     margin: 0.5px;
 }
 
+
 .num:hover
 {
-    opacity: 0.7;
+    background-color: #ffffff;
+    opacity: 0.2;
+    color: black;
 }
 .num:active
 {
@@ -74,6 +128,8 @@ body {
 #num0
 {
     padding-right: 100px;
+    /*border-right-style: solid;
+    border-right-width: thin;*/
     display: flex;
     align-items:center;
     justify-content:center;
@@ -85,10 +141,10 @@ body {
     display: flex;
     align-items:center;
     justify-content:center;
-    background-color: darkorange;
+    /*background-color: darkorange;*/
     color: white;
     height: 50px;
-    width: 50px;
+    width: 60px;
     font-weight: 900;
     cursor: pointer;
     margin: 0.5px;
@@ -97,5 +153,71 @@ body {
 
 .calcOp:hover
 {
-    opacity: 0.7;
+    background-color: #ffffff;
+    opacity: 0.2;
+    color: black;
+}
+
+
+
+
+/* *** POPUP *** */
+#popup-back {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.75);
+    z-index: 1;
+}
+
+
+#popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    z-index: 2;
+    transform: translate(-50%,-50%);
+    background-color: cornflowerblue;
+    text-align: center;
+
+}
+
+form {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+}
+
+::placeholder {
+    font-family: 'Montserrat', sans-serif;
+}
+
+fieldset {
+    border-color: transparent;
+}
+
+input {
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 30px;
+    font-size: 16px;
+}
+
+#form-submit {
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+    background-color: #007DFE;
+    color: white;
+    padding: 10px 85px;
+}
+
+#form-submit:hover {
+    background-color: #0b4d8f;
 }
