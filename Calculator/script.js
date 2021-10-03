@@ -71,7 +71,7 @@ function funAct() // מבצע את תהליך האופרטור הלחוץ
             sum -= lstNumInt;
     else if(op == '+' && opHez == "" && opAhoz == "") // מבצע פעולת חיבור
             sum += lstNumInt;
-    else if(opHez == 'X²') // מבצע את פעולת החזקה
+    else if(opHez == 'X²' && opAhoz == "") // מבצע את פעולת החזקה
             if(lstNum == "") // בודק אם משתמש רוצה לעשות חזקה רק על המספר הראשון בלבד
                 sum = sum*sum;
             else
@@ -122,17 +122,34 @@ function funAct() // מבצע את תהליך האופרטור הלחוץ
                 }
     else // מבצע את פעולת האחוז
     {
-        if(op == "/")
+        if(opHez == "") // אם האופרטור הראשון בלי חזקה
+        {
+            if(op == "/")
             if(lstNumInt == 0)
                     return "Can't divide by 0";
                 else
-                    sum = sum/lstNumInt/100;
+                    sum = sum*100/lstNumInt;
             else if(op == "*")
                 sum = sum*lstNumInt/100;
             else if(op == "-")
                 sum = sum-lstNumInt/100;
             else if(op == "+")
-                sum = sum+lstNumInt/100;        
+                sum = sum+lstNumInt/100;   
+        }
+        else // אם האופרטור השני עם חזקה
+        {
+            if(op == "/")
+            if(lstNumInt == 0)
+                    return "Can't divide by 0";
+                else
+                    sum = sum*sum*100/lstNumInt;
+            else if(op == "*")
+                sum = sum*sum*lstNumInt/100;
+            else if(op == "-")
+                sum = (sum*sum)-(lstNumInt/100);
+            else if(op == "+")
+                sum = (sum*sum)+(lstNumInt/100);   
+        }
     }   
     return sum;
 }
