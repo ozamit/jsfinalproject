@@ -97,6 +97,10 @@ body {
     color: black;
 }
 
+#email_btn
+{
+    text-decoration: none;
+}
 
 /* POPUP */
 #popup-back {
