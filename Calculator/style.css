@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    background-image: url("../Login/images/BG-9.jpg");
+    background-image: url('C:/FullStack/jsfinalproject/images/BG-9.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -48,7 +48,7 @@ body {
     left: 50%;
     transform: translate(-50%,-50%);
     width: 230px;
-    height: 380px;
+    height: 381px;
     font-family: 'Gemunu Libre', sans-serif;
     margin: auto;
     background: linear-gradient(#22577A, #38A3A5);
@@ -62,8 +62,9 @@ body {
 	display: flex;
 	justify-content: flex-start;
 	align-items: flex-end;
+    /*background-color: black;*/
     color: white;
-    height: 88px;
+    height: 71px;
     width: 220px;
     margin: 0;
     font-size: 50px;
@@ -80,8 +81,6 @@ body {
     border-width: thin;*/
 	font-size: x-large;
     margin: 0.5px;
-
-
 }
 
 .num
@@ -89,13 +88,17 @@ body {
     display: flex;
     align-items:center;
     justify-content:center;
-    height: 55px;
+    font-size: x-large;
+    height: 50px;
     width: 60px;
     font-weight: 900;
+    background: transparent;
+    border: none;
+    /*border-right-style: solid;
+    border-right-width: thin;*/
     cursor: pointer;
     margin: 0.5px;
 }
-
 
 .num:hover
 {
@@ -110,7 +113,9 @@ body {
 
 #num0
 {
-    padding-right: 100px;
+    padding-right: 113px;
+    /*border-right-style: solid;
+    border-right-width: thin;*/
     display: flex;
     align-items:center;
     justify-content:center;
@@ -122,13 +127,14 @@ body {
     display: flex;
     align-items:center;
     justify-content:center;
-    color: white;
-    height: 55px;
+    font-size: x-large;
+    height: 50px;
     width: 60px;
     font-weight: 900;
-    cursor: pointer;
     margin: 0.5px;
-
+    background: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 .calcOp:hover
@@ -138,62 +144,67 @@ body {
     color: black;
 }
 
-#Aop_id {
-    color: #ffffff;
-}
-
-#Aop_id:hover
+.btn_set 
 {
-    background-color: #ffffff;
-    opacity: 0.2;
-    color: black;
-}
-
-#Bop_id {
-    color: #ffffff;
-}
-
-#Bop_id:hover
-{
-    background-color: #ffffff;
-    opacity: 0.2;
-    color: black;
-}
-
-#Cop_id {
-    color: #ffffff;
-}
-
-#Cop_id:hover
-{
-    background-color: #ffffff;
-    opacity: 0.2;
-    color: black;
-}
-
-/*  history btn */
-
-.history {
     display: flex;
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 190px;
-    height: 20px;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #ffffff;
-    color: #007DFE;
-    text-decoration: none;
-    align-items: center;
     justify-content: center;
+	align-items: center;
+    margin-left: 292px;
+    margin-top: 42.3vh;
 }
 
-.history:hover {
-    background-color: #cecece;
+.history_btn 
+{
+    position: relative;
+    width: 60px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ebebeb;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 25%;
+    border-top-left-radius: 0%;
+    border-top-right-radius: 25%;
+    margin-top: 2px;
 }
 
+.history_btn a 
+{
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    top: calc(50% - 11px);
+    left: calc(50% - 11px);
+}
+
+.history_btn:hover {
+    background-color: #ffffff;
+}
+
+.history_btn .tooltiptext 
+{
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    margin-left: 70px;
+    margin-top: 12px;
+    position: absolute;
+    z-index: 1;
+}
+
+.history_btn:hover .tooltiptext 
+{
+    visibility: visible;
+}
+
+.history_btn a
+{
+    text-decoration: none; 
+}
 
 /* *** POPUP *** */
 #popup-back {
@@ -206,7 +217,6 @@ body {
     background: rgba(0,0,0,0.75);
     z-index: 1;
 }
-
 
 #popup-content {
     position: absolute;
