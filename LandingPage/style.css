@@ -2,7 +2,31 @@ body
 {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
+    background-image: url("../Login/images/BG-9.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #ffffff;
+}
 
+/* HEADER */
+.header {
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    height: 50px;
+    box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.75);
+}
+
+.log_plus_prjname {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
 }
 
 .title {
@@ -15,6 +39,7 @@ body
 
 h1
 {
+    color: #ffffff;
     text-align: center;
     margin: 0;
     font-weight: 700;
@@ -54,7 +79,8 @@ h1
     height: 150px;
     padding: 10px;
     border-radius: 50%;
-    box-shadow: 1px 0px 5px 0px rgba(0,0,0,0.50);
+    box-shadow: 1px 0px 15px 0px rgba(255, 255, 255, 1);
+    background-color: #ffffff;
 }
 
 .button {
@@ -63,10 +89,15 @@ h1
     margin: 30px 35vw;
     padding: 10px;
     border-radius: 5px;
-    background-color: #007DFE;
-    color: white;
+    background-color: #ffffff;
+    color: #007DFE;
     text-decoration: none;
+}
 
+.button:hover {
+    background-color: #007DFE;
+    color: #ffffff;
+    border: 2px solid #ffffff;
 }
 
 .img {
