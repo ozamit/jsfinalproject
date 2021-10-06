@@ -5,6 +5,7 @@ let sum = 0, lstNumInt = 0 , sumHezka = 0;
 let lstNum = "" , op = "" , opHez = "" , opAhoz = "";
 let num1Hez = false , num2Hez = false;
 let sumAll = [];
+let link = document.getElementById('aLink');
 
 nums.forEach(label =>
 {
@@ -12,13 +13,21 @@ nums.forEach(label =>
         label.addEventListener('click', (event) =>
         {
             funSum(label.innerText);
-        })
+        })  
     else if(label.innerText == 'C')
         label.addEventListener('click',(event) => // Clear button
         {
             screen.innerText = 0 , sum = 0 , lstNumInt = 0 , sumHezka = 0;
             op = "" , lstNum = "" , opHez = "" , opAhoz = "";
             num1Hez = false , num2Hez = false;
+            calcOp.forEach(button =>{
+                button.disabled = false;
+                button.style.cursor = 'pointer';
+            });
+            nums.forEach(button=>{
+                button.disabled = false
+                button.style.cursor = 'pointer';
+            })
         });
     else if(label.innerText == '%')
         label.addEventListener('click',(event) => // % button
@@ -38,23 +47,37 @@ nums.forEach(label =>
         });
 })
 
-calcOp.forEach(label => 
+calcOp.forEach(button => 
 {
-    if(label.innerText == "=") // equal button
-        label.addEventListener('click', (event) =>
+    if(button.innerText == "=") // equal button
+        button.addEventListener('click', (event) =>
         {
             screen.innerText += "=" + funAct();
             sumAll.push(screen.innerText);
+            calcOp.forEach(button=>
+            {
+                button.disabled = true;
+                button.style.cursor = 'auto';
+            })
+            nums.forEach(button=>{
+                button.disabled = true
+                button.style.cursor = 'auto';
+            })
             lstNumInt = 0 , sumHezka = 0;
             op = "" , lstNum = "" , opHez = "" , opAhoz = "";
             num1Hez = false , num2Hez = false;
-            console.log(sumAll);
         });
     else // other operators buttons
-        label.addEventListener('click', (event) => 
+        button.addEventListener('click', (event) => 
         {
-            screen.innerText += label.innerText;
-            op = label.innerText;
+            screen.innerText += button.innerText;
+            op = button.innerText;
+            calcOp.forEach(button =>
+            {
+                if(button.innerText != "=")
+                    button.disabled = true;
+                    button.style.cursor = 'auto';
+            });
         });
 });
 
@@ -160,6 +183,16 @@ function funSum(lastClick) // מבצע סיכום כל פעם איזה מספר 
         screen.innerText = "";
     if(sumAll[sumAll.length-1] == screen.innerText) // מבצע אתחול מחדש של המסך לאחר סיום כל תרגיל
     {
+        calcOp.forEach(button =>
+        {
+            button.disabled = false;
+            button.style.cursor = 'pointer';
+        });
+        nums.forEach(button=>
+        {
+            button.disabled = false
+            button.style.cursor = 'pointer';
+        })
         screen.innerText = lastClick;
         sum = parseInt(screen.innerText);
     }
@@ -175,7 +208,6 @@ function funSum(lastClick) // מבצע סיכום כל פעם איזה מספר 
         lstNumInt = parseInt(lstNum);
     }
 }
-
 // *** POPUP ***
 let popup_back = document.getElementById('popup-back');
 
@@ -188,19 +220,16 @@ if (url.includes("share")){
 // הדפסת פרטי המשתמש בהאדר
 
 let queryString = window.location.search;
-console.log(queryString);
-
 const urlParams = new URLSearchParams(queryString);
 
 let name = urlParams.get('name')
-console.log(name);
 let email = urlParams.get('email')
-console.log(email);
 
 user_name.innerText = name + " | " + email;
 
-
-let historyBtn = document.getElementById('history_btn')
-historyBtn.addEventListener ("click", (event) => {
-    window.location.href = "file:///C:/fullstack/fullstackcourse/jsfinalproject/Final%20screen/index.html" + "?history=" + sumAll + "&name=" + name + "&email=" + email;
-})
+// העברת המערך לדף הסופי
+link.addEventListener('click',(event)=>
+{
+    const myJSON = JSON.stringify(sumAll);
+    localStorage.setItem("testJSON", myJSON);
+});
