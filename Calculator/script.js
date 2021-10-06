@@ -198,3 +198,9 @@ let email = urlParams.get('email')
 console.log(email);
 
 user_name.innerText = name + " | " + email;
+
+
+let historyBtn = document.getElementById('history_btn')
+historyBtn.addEventListener ("click", (event) => {
+    window.location.href = "file:///C:/fullstack/fullstackcourse/jsfinalproject/Final%20screen/index.html" + "?history=" + sumAll + "&name=" + name + "&email=" + email;
+})
