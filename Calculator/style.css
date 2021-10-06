@@ -44,7 +44,7 @@ body {
     /*border-style: solid;*/
     display: inline-block;
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     width: 230px;
@@ -176,7 +176,7 @@ body {
 .history {
     display: flex;
     position: absolute;
-    top: 65%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%,-50%);
     width: 190px;
