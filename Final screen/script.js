@@ -47,3 +47,16 @@ submitBtn.addEventListener ("click", (event) => {
     email_value = email_field.value;
     console.log(targil_value + " - " + email_value); // לצורך בקרה בלבד
 })
+
+//הדפסת כל התרגילים שהמשתמש עשה
+let text = localStorage.getItem("testJSON");
+let sumAll = JSON.parse(text);
+let hisCalc = document.getElementById('HistoryCalc');
+for(let i=0;i<sumAll.length;i++)
+{
+    let exercise = document.createElement('p');
+    exercise.innerText = i+1+". "+ sumAll[i];
+    exercise.style.margin = 5+'px';
+    exercise.style.fontSize = 30+'px';
+    hisCalc.appendChild(exercise);
+}
