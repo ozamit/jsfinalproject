@@ -1,11 +1,12 @@
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    background-image: url('C:/FullStack/jsfinalproject/images/BG-9.jpg');
+    background-image: url('../images/BG.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
 
+/* HEADER */
 .header {
     display: flex;
     align-items: center;
@@ -39,16 +40,16 @@ body {
     margin: 0 20px 0 10px;
 }
 
+/* CALCULATOR */
 #main
 {
-    /*border-style: solid;*/
     display: inline-block;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     width: 230px;
-    height: 381px;
+    height: 380px;
     font-family: 'Gemunu Libre', sans-serif;
     margin: auto;
     background: linear-gradient(#22577A, #38A3A5);
@@ -62,9 +63,8 @@ body {
 	display: flex;
 	justify-content: flex-start;
 	align-items: flex-end;
-    /*background-color: black;*/
     color: white;
-    height: 71px;
+    height:80px;
     width: 220px;
     margin: 0;
     font-size: 50px;
@@ -77,8 +77,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items:center; 
-    /*border-style: solid;
-    border-width: thin;*/
 	font-size: x-large;
     margin: 0.5px;
 }
@@ -89,13 +87,11 @@ body {
     align-items:center;
     justify-content:center;
     font-size: x-large;
-    height: 50px;
+    height: 56px;
     width: 60px;
     font-weight: 900;
     background: transparent;
     border: none;
-    /*border-right-style: solid;
-    border-right-width: thin;*/
     cursor: pointer;
     margin: 0.5px;
 }
@@ -114,8 +110,6 @@ body {
 #num0
 {
     padding-right: 113px;
-    /*border-right-style: solid;
-    border-right-width: thin;*/
     display: flex;
     align-items:center;
     justify-content:center;
@@ -128,7 +122,7 @@ body {
     align-items:center;
     justify-content:center;
     font-size: x-large;
-    height: 50px;
+    height: 56px;
     width: 60px;
     font-weight: 900;
     margin: 0.5px;
