@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: 'Gemunu Libre', sans-serif;
-    background-image: url("../Login/images/BG-9.jpg");
+    background-image: url("../images/BG.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -97,9 +97,10 @@ body {
     color: black;
 }
 
-#email_btn
+#back_btn
 {
     text-decoration: none;
+    cursor: pointer;
 }
 
 /* POPUP */
@@ -207,7 +208,6 @@ input {
     z-index: 1;
   }
   
-
 .share_btn:hover .tooltiptext {
     visibility: visible;
 }
