@@ -1,26 +1,34 @@
-let user_name = document.getElementById('user_name')
+let user_name = document.getElementById('user_name');
+let wa_btn = document.getElementById('wa_btn');
 let email_btn = document.getElementById('email_btn');
-let close = document.getElementById('close');
-let popup_back = document.getElementById('popup-back');
-//let popup_content = document.getElementById('popup-content');
+let close_btn = document.getElementById('close');
+let wa_popup_back = document.getElementById('wa_popup-back');
+let email_popup_back = document.getElementById('email_popup-back');
 let url = window.location.href;
 let shared_url = ""
 
 
 
 // הצגה והסתרה של הפופאפ
+
+// פתיחה של הפופאפ הנכון לפי הכפתור שנלחץ
+wa_btn.addEventListener('click', (event) => {
+    wa_popup_back.style.display = "block";
+    });
 email_btn.addEventListener('click', (event) => {
-    popup_back.style.display = "block";
+    email_popup_back.style.display = "block";
     });
-
-close.addEventListener('click', (event) => {
-    popup_back.style.display = "none";
-    });
-
-
+// הכרזה על כל כפתורי הסגירה בכל הפופאים
+let close_btns = document.querySelectorAll('.close');
+// האזנה לכפתורים וסגירת הפופאפ בלחיצה על הכפתור
+close_btns.forEach(close_btn => {
+    close_btn.addEventListener('click', (event) => {
+        wa_popup_back.style.display = "none";
+        email_popup_back.style.display = "none";
+    })
+} )
 
 // הדפסת פרטי המשתמש בהאדר
-
 let queryString = window.location.search;
 console.log(queryString);
 
