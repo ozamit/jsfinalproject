@@ -169,6 +169,7 @@ body {
     position: absolute;
     top: calc(50% - 11px);
     left: calc(50% - 11px);
+    cursor: pointer;
 }
 
 .history_btn:hover {
