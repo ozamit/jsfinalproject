@@ -1,12 +1,12 @@
 let user_name = document.getElementById('user_name');
 let wa_btn = document.getElementById('wa_btn');
 let email_btn = document.getElementById('email_btn');
+let back_btn = document.getElementById('back_btn');
 let close_btn = document.getElementById('close');
 let wa_popup_back = document.getElementById('wa_popup-back');
 let email_popup_back = document.getElementById('email_popup-back');
 let url = window.location.href;
 let shared_url = ""
-
 
 
 // הצגה והסתרה של הפופאפ
@@ -28,6 +28,7 @@ close_btns.forEach(close_btn => {
     })
 } )
 
+
 // הדפסת פרטי המשתמש בהאדר
 let queryString = window.location.search;
 console.log(queryString);
@@ -41,6 +42,10 @@ console.log(email);
 
 user_name.innerText = name + " | " + email;
 
+// כפתור המחזיר בחזרה למחשבון עם פרטי המשתמש
+back_btn.addEventListener('click', (event) => {
+    window.location.href = "C:/FullStack/jsfinalproject/Calculator/calculator.html" + "?name=" + name + "&email=" + email;
+    });
 
 // שמירת ערכי טופס השיתוף והעברתם עם הלינק
 
@@ -53,7 +58,6 @@ let submitBtn = document.getElementById("submit")
 submitBtn.addEventListener ("click", (event) => {
     targil_value = targil_field.value;
     email_value = email_field.value;
-    console.log(targil_value + " - " + email_value); // לצורך בקרה בלבד
 })
 
 //הדפסת כל התרגילים שהמשתמש עשה
