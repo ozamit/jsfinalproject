@@ -7,9 +7,19 @@ let num1Hez = false , num2Hez = false;
 let sumAll = [];
 let link = document.getElementById('aLink');
 
+// הדפסת פרטי המשתמש בהאדר
+let queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+
+let name = urlParams.get('name')
+let email = urlParams.get('email')
+
+user_name.innerText = name + " | " + email;
+
+// האזנה לכל כפתורי המספרים, חזקה, אחוז ומחיקה
 nums.forEach(label =>
 {
-    if((label.innerText != 'C') && (label.innerText != '%') && (label.innerText != 'X²')) // Numbers Button
+    if((label.innerText != 'C') && (label.innerText != '%') && (label.innerText != 'X²')) // All numbers Buttons
         label.addEventListener('click', (event) =>
         {
             funSum(label.innerText);
@@ -20,11 +30,11 @@ nums.forEach(label =>
             screen.innerText = 0 , sum = 0 , lstNumInt = 0 , sumHezka = 0;
             op = "" , lstNum = "" , opHez = "" , opAhoz = "";
             num1Hez = false , num2Hez = false;
-            calcOp.forEach(button =>{
+            calcOp.forEach(button => {
                 button.disabled = false;
                 button.style.cursor = 'pointer';
             });
-            nums.forEach(button=>{
+            nums.forEach(button => {
                 button.disabled = false
                 button.style.cursor = 'pointer';
             })
@@ -36,7 +46,7 @@ nums.forEach(label =>
             opAhoz = label.innerText;
         });
     else
-        label.addEventListener('click',(event) => // ² button
+        label.addEventListener('click',(event) => // X² button
         {
             screen.innerText += label.innerText.charAt(1);
             opHez = label.innerText;
@@ -47,6 +57,7 @@ nums.forEach(label =>
         });
 })
 
+// האזנה לכל האופרטורים ולכפתור החישוב/שווה
 calcOp.forEach(button => 
 {
     if(button.innerText == "=") // equal button
@@ -54,12 +65,12 @@ calcOp.forEach(button =>
         {
             screen.innerText += "=" + funAct();
             sumAll.push(screen.innerText);
-            calcOp.forEach(button=>
+            calcOp.forEach(button =>
             {
                 button.disabled = true;
                 button.style.cursor = 'auto';
             })
-            nums.forEach(button=>{
+            nums.forEach(button => {
                 button.disabled = true
                 button.style.cursor = 'auto';
             })
@@ -81,6 +92,43 @@ calcOp.forEach(button =>
         });
 });
 
+
+// הפונקציה שמופעלת רק בלחיצה על מספר
+// מבצע סיכום כל פעם איזה מספר רצה המשתמש ליצור לפני או אחרי האופרטור
+function funSum(lastClick) 
+{
+    if(screen.innerText == "0") // מתחיל באתחול המסך בכדי שספרת 0 לא תשורשר
+        screen.innerText = "";
+    if(sumAll[sumAll.length-1] == screen.innerText) // בהתחלה של תרגיל חדש מבצע אתחול מחדש של המסך ומאפשר לחיצה על האופרטורים
+    {
+        calcOp.forEach(button =>
+        {
+            button.disabled = false;
+            button.style.cursor = 'pointer';
+        });
+        nums.forEach(button =>
+        {
+            button.disabled = false;
+            button.style.cursor = 'pointer';
+        })
+        screen.innerText = lastClick;
+        sum = parseInt(screen.innerText);
+    }
+    else if(op == "") // כאשר כבר הוקלדה ספרה אבל עדיין לא הוקלד אופרטור, יוצר את המספר שלפני האופרטור
+    {
+        screen.innerText += lastClick;
+        sum = parseInt(screen.innerText); // מגדיר את הסיכום עד כה. המספר הזה יחושב יחד אם המספר שיקליד המשתמש בהמשך אחרי האופרטור
+    }
+    else // כאשר כבר הוקלד אופרטור, יוצר את המספר שלאחר האופרטור
+    {
+        screen.innerText += lastClick;
+        lstNum += screen.innerText.charAt(screen.innerText.length-1);
+        lstNumInt = parseInt(lstNum); // מגדיר את המספר האחרון שהוקלד
+    }
+}
+
+
+// הפונקציה שמופעלת רק בליחה על כפתור השווה
 function funAct() // מבצע את תהליך האופרטור הלחוץ
 {
     if(op == "/" && opHez == "" && opAhoz == "") // מבצע פעולת חילוק
@@ -97,7 +145,7 @@ function funAct() // מבצע את תהליך האופרטור הלחוץ
     else if(opHez == 'X²' && opAhoz == "") // מבצע את פעולת החזקה
             if(lstNum == "") // בודק אם משתמש רוצה לעשות חזקה רק על המספר הראשון בלבד
                 sum = sum*sum;
-            else
+            else // כל החלק הזה מתייחס רק למצב שבו המשתמש מבצע חזקה על הספרה הרארשונה וממשיך בתרגיל
                 {
                     if(num1Hez == true && num2Hez == true) // בודק אם נלחץ חזקה בשני המספרים
                     {
@@ -177,59 +225,43 @@ function funAct() // מבצע את תהליך האופרטור הלחוץ
     return sum;
 }
 
-function funSum(lastClick) // מבצע סיכום כל פעם איזה מספר רצה המשתמש ליצור בין לפני ובין אחרי האופרטור
+
+// *** HISTORY ***
+// בלחיצה על מעבר להיסטורית החישובים שומר ג'ייסון עם הפעולות בזיכרון של הגולש
+link.addEventListener('click',(event) => 
 {
-    if(screen.innerText == "0") // אתחול הצג בכדי שספרת 0 לא תשורשר
-        screen.innerText = "";
-    if(sumAll[sumAll.length-1] == screen.innerText) // מבצע אתחול מחדש של המסך לאחר סיום כל תרגיל
-    {
-        calcOp.forEach(button =>
-        {
-            button.disabled = false;
-            button.style.cursor = 'pointer';
-        });
-        nums.forEach(button=>
-        {
-            button.disabled = false
-            button.style.cursor = 'pointer';
-        })
-        screen.innerText = lastClick;
-        sum = parseInt(screen.innerText);
-    }
-    else if(op == "") // יוצר את המספר שלפני האופרטור
-    {
-        screen.innerText += lastClick;
-        sum = parseInt(screen.innerText);
-    }
-    else // יוצר את המספר שלאחר האופרטור
-    {
-        screen.innerText += lastClick;
-        lstNum += screen.innerText.charAt(screen.innerText.length-1);
-        lstNumInt = parseInt(lstNum);
-    }
-}
+    const myJSON = JSON.stringify(sumAll);
+    localStorage.setItem("testJSON", myJSON);
+    window.location.href = "C:/fullstack/fullstackcourse/jsfinalproject/Final%20screen/index.html"  + "?name=" + name + "&email=" + email;
+});
+
 // *** POPUP ***
 let popup_back = document.getElementById('popup-back');
-
 let url = window.location.href;
 
 if (url.includes("share")){
     popup_back.style.display = "block";
 }
 
-// הדפסת פרטי המשתמש בהאדר
+let full_name_field = document.getElementById("fullName");
+let full_name_value = "";
+let email_field = document.getElementById("eMail");
+let email_value = "";
+let submitBtn = document.getElementById("form-submit");
 
-let queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
+submitBtn.addEventListener ("click", (event) => {
 
-let name = urlParams.get('name')
-let email = urlParams.get('email')
-
-user_name.innerText = name + " | " + email;
-
-// העברת המערך לדף הסופי
-link.addEventListener('click',(event)=>
-{
-    const myJSON = JSON.stringify(sumAll);
-    localStorage.setItem("testJSON", myJSON);
-});
+    if (full_name_field.value == "" && email_field.value == "") {
+        alert("Please fill the form")
+    } else if (full_name_field.value == "") {
+        alert("please enter name")
+    } else if (email_field.value == "") {
+        alert("please enter email")
+    } else if (email_field.value.includes("@") == false) {
+        alert("please enter valid email (with @)") 
+    } else {
+        full_name_value = full_name_field.value;
+        email_value = email_field.value;
+        window.location.href = "file:///C:/fullstack/fullstackcourse/jsfinalproject/Calculator/calculator.html" + "?name=" + full_name_value + "&email=" + email_value;
+    }
+})
