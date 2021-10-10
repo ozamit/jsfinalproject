@@ -68,7 +68,6 @@ for(let i=0;i<sumAll.length;i++)
 {
     let exercise = document.createElement('p');
     exercise.innerText = i+1+". "+ sumAll[i];
-    exercise.style.margin = 5+'px';
     exercise.style.fontSize = 30+'px';
     hisCalc.appendChild(exercise);
 }
