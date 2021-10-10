@@ -170,6 +170,7 @@ body {
     top: calc(50% - 11px);
     left: calc(50% - 11px);
     cursor: pointer;
+    text-decoration: none; 
 }
 
 .history_btn:hover {
@@ -194,11 +195,6 @@ body {
 .history_btn:hover .tooltiptext 
 {
     visibility: visible;
-}
-
-.history_btn a
-{
-    text-decoration: none; 
 }
 
 /* *** POPUP *** */
