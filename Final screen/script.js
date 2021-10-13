@@ -8,6 +8,18 @@ let email_popup_back = document.getElementById('email_popup-back');
 let url = window.location.href;
 let shared_url = ""
 
+// הדפסת פרטי המשתמש בהאדר
+let queryString = window.location.search;
+console.log(queryString);
+
+const urlParams = new URLSearchParams(queryString);
+
+let name = urlParams.get('name')
+console.log(name);
+let email = urlParams.get('email')
+console.log(email);
+
+user_name.innerText = name + " | " + email;
 
 // הצגה והסתרה של הפופאפ
 
@@ -29,36 +41,35 @@ close_btns.forEach(close_btn => {
 } )
 
 
-// הדפסת פרטי המשתמש בהאדר
-let queryString = window.location.search;
-console.log(queryString);
+// שמירת ערכי טופס השיתוף והעברתם עם הלינק
 
-const urlParams = new URLSearchParams(queryString);
+let targil_field = document.getElementById("targil");
+let email_field = document.getElementById("eMail");
+let phone_field = document.getElementById("phone");
+let email_field_value = ""
+let phone_field_value = ""
+let submitBtn = document.getElementById("submit");
+let submitBtns = document.querySelectorAll(".submit")
 
-let name = urlParams.get('name')
-console.log(name);
-let email = urlParams.get('email')
-console.log(email);
-
-user_name.innerText = name + " | " + email;
+submitBtns.forEach(submitBtn => {
+    submitBtn.addEventListener('click', (event) => {
+        shared_url = "file:///C:/fullstack/fullstackcourse/jsfinalproject/Calculator/calculator.html" + "?source=share&targil=" + targil_field.value;
+        if (wa_popup_back.style.display == "block") {
+            phone_field_value = phone_field.value
+            window.location.href = "https://wa.me/" + phone_field_value + "?text=Try%20this%20cool%20calculator:%20" + shared_url
+        } else if (email_popup_back.style.display == "block") {
+            email_field_value = email_field.value
+            window.open("mailto:" + email_field_value + "?subject=check out this cool calcolator&body=" + shared_url, '_blank');
+        } else {
+            alert("try again")
+        }
+    })
+} )
 
 // כפתור המחזיר בחזרה למחשבון עם פרטי המשתמש
 back_btn.addEventListener('click', (event) => {
     window.location.href = "C:/FullStack/jsfinalproject/Calculator/calculator.html" + "?name=" + name + "&email=" + email;
     });
-
-// שמירת ערכי טופס השיתוף והעברתם עם הלינק
-
-let targil_field = document.getElementById("targil");
-let targil_value = "";
-let email_field = document.getElementById("eMail");
-let email_value = "";
-let submitBtn = document.getElementById("submit")
-
-submitBtn.addEventListener ("click", (event) => {
-    targil_value = targil_field.value;
-    email_value = email_field.value;
-})
 
 //הדפסת כל התרגילים שהמשתמש עשה
 let text = localStorage.getItem("testJSON");
