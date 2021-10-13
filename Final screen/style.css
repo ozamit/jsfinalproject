@@ -181,7 +181,7 @@ input {
     font-size: 16px;
 }
 
-#submit {
+.submit {
     text-align: center;
     border-radius: 10px;
     border: none;
@@ -190,7 +190,7 @@ input {
     padding: 10px 85px;
 }
 
-#submit:hover {
+.submit:hover {
     background-color: #0b4d8f;
 }
 
