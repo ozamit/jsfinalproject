@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: 'Gemunu Libre', sans-serif;
-    background-image: url("../images/BG.jpg");
+    background-image: url("../Login/images/BG-9.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -87,7 +87,6 @@ body {
     position: absolute;
     top: calc(50% - 11px);
     left: calc(50% - 11px);
-    cursor: pointer;
 }
 
 .share_btn:hover {
@@ -98,10 +97,9 @@ body {
     color: black;
 }
 
-#back_btn
+#email_btn
 {
     text-decoration: none;
-    cursor: pointer;
 }
 
 /* POPUP */
@@ -137,7 +135,7 @@ body {
     transform: translate(-50%,-50%);
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
     background-color: white;
     border-radius: 10%;
     text-align: center;
@@ -162,16 +160,18 @@ body {
     color: #ffffff;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+h3 {
+    margin-top: 35px
+}
+
 ::placeholder {
     font-family: 'Montserrat', sans-serif;
-}
-
-fieldset {
-    border-color: transparent;
-}
-
-fieldset {
-    border-color: transparent;
 }
 
 input {
@@ -179,6 +179,7 @@ input {
     border-radius: 10px;
     height: 30px;
     font-size: 16px;
+    margin-bottom: 20px;
 }
 
 .submit {
@@ -209,6 +210,7 @@ input {
     z-index: 1;
   }
   
+
 .share_btn:hover .tooltiptext {
     visibility: visible;
 }
