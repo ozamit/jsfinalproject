@@ -10,8 +10,6 @@ let shared_url = ""
 
 // הדפסת פרטי המשתמש בהאדר
 let queryString = window.location.search;
-console.log(queryString);
-
 const urlParams = new URLSearchParams(queryString);
 
 let name = urlParams.get('name')
@@ -43,28 +41,62 @@ close_btns.forEach(close_btn => {
 
 // שמירת ערכי טופס השיתוף והעברתם עם הלינק
 
-let targil_field = document.getElementById("targil");
+let targil_field = document.getElementsByClassName("targil");
 let email_field = document.getElementById("eMail");
 let phone_field = document.getElementById("phone");
 let email_field_value = ""
 let phone_field_value = ""
 let submitBtn = document.getElementById("submit");
-let submitBtns = document.querySelectorAll(".submit")
+let submitBtns = document.querySelectorAll(".submit");
+
+// בלחיצה על כפתור שלח
 
 submitBtns.forEach(submitBtn => {
     submitBtn.addEventListener('click', (event) => {
-        shared_url = "file:///C:/fullstack/fullstackcourse/jsfinalproject/Calculator/calculator.html" + "?source=share&targil=" + targil_field.value;
+
+        // מביא את התרגיל מהשדה הרלוונטי ושומר כל פרט בו במערך
+        const targilFirst = submitBtn.parentNode.querySelector(".targil").value.split('');
+        let targil_Final = ""
+        // בדיקה שהשדות בטופס מלאים
+        if (targilFirst == "") {
+            alert("Please enter targil")
+        } else if (phone_field.value == "" && wa_popup_back.style.display == "block") {
+            alert("please enter phone")
+        } else if (email_field.value == "" && email_popup_back.style.display == "block") {
+            alert("please enter email")
+        } else if (email_field.value.includes("@") == false && email_popup_back.style.display == "block") {
+            alert("please enter valid email (with @)") 
+        } else {
+           
+       // מקודד אופרטורים שיותאמו ללינק
+        targilFirst.forEach((value, key) => {
+            if(value == "+") {
+                targil_Final += "%2B";
+            } else if(value == "-") {
+                targil_Final += "-";
+            } else if(value == "*") {
+                targil_Final += "%2A";
+            } else if(value == "/") {
+                targil_Final += "%2F";
+            } else {
+                targil_Final += value;
+            }
+        })
+        // מייצר את הלינק הסופי לשיתוף
+        shared_url = "file:///C:/fullstack/fullstackcourse/jsfinalproject/Calculator/calculator.html?"+ "source=share%26" + "targil=" + targil_Final + "&source=share";
+        // מזהה איזה פופאפ פתוח, ווצאפ או מייל, מעדכן את הלינק הסופי ומעביר את הגולש לעמוד הרלוונטי
         if (wa_popup_back.style.display == "block") {
             phone_field_value = phone_field.value
-            window.location.href = "https://wa.me/" + phone_field_value + "?text=Try%20this%20cool%20calculator:%20" + shared_url
+            window.open("https://wa.me/" + phone_field_value + "?text=Try%20this%20cool%20calculator:%20" + shared_url, '_blank');
         } else if (email_popup_back.style.display == "block") {
             email_field_value = email_field.value
-            window.open("mailto:" + email_field_value + "?subject=check out this cool calcolator&body=" + shared_url, '_blank');
+            window.open("https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=" + email_field_value + "&su=Check out this cool CALCULATOR&body=" + shared_url, '_blank');
         } else {
-            alert("try again")
+            alert("please try again")
         }
-    })
+    }})
 } )
+
 
 // כפתור המחזיר בחזרה למחשבון עם פרטי המשתמש
 back_btn.addEventListener('click', (event) => {
