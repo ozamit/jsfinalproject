@@ -279,7 +279,7 @@ if(targilBack != null)
         if(targilBackArr[i] != "+" && targilBackArr[i] != "-" && targilBackArr[i] != "*" && targilBackArr[i] != "/" && op == "")// כאשר כבר הוקלדה ספרה אבל עדיין לא הוקלד אופרטור, יוצר את המספר שלפני האופרטור
             firstNum += targilBackArr[i];// מגדיר את הסיכום עד כה. המספר הזה יחושב יחד אם המספר שיקליד המשתמש בהמשך אחרי האופרטור
         else if(targilBackArr[i] == "+" || targilBackArr[i] == "-" || targilBackArr[i] == "*" || targilBackArr[i] == "/")
-            op = targilBackArr[i]; // כאשר כבר הוקלד אופרטור, יוצר את המספר שלאחר האופרטור
+           op = targilBackArr[i]; // שומר את האופקטור
         else
             lstNum += targilBackArr[i]; // מגדיר את המספר האחרון שהוקלד
     }
