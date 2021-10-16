@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: 'Gemunu Libre', sans-serif;
-    background-image: url("../Login/images/BG-9.jpg");
+    background-image: url("../images/BG.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -100,6 +100,17 @@ body {
 #email_btn
 {
     text-decoration: none;
+    /* cursor: pointer; */
+}
+
+#back_btn
+{
+    cursor: pointer;
+}
+
+a
+{
+    cursor: pointer;
 }
 
 /* POPUP */
