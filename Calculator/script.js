@@ -74,6 +74,7 @@ calcOp.forEach(button =>
                 button.disabled = true
                 button.style.cursor = 'auto';
             })
+            document.getElementById('clear').style.cursor = 'pointer';
             lstNumInt = 0 , sumHezka = 0;
             op = "" , lstNum = "" , opHez = "" , opAhoz = "";
             num1Hez = false , num2Hez = false;
@@ -89,6 +90,7 @@ calcOp.forEach(button =>
                     button.disabled = true;
                     button.style.cursor = 'auto';
             });
+            document.getElementById('equal').style.cursor = 'pointer';
         });
 });
 
@@ -128,7 +130,7 @@ function funSum(lastClick)
 }
 
 
-// הפונקציה שמופעלת רק בליחה על כפתור השווה
+// הפונקציה שמופעלת רק בליחצה על כפתור השווה
 function funAct() // מבצע את תהליך האופרטור הלחוץ
 {
     if(op == "/" && opHez == "" && opAhoz == "") // מבצע פעולת חילוק
@@ -232,7 +234,7 @@ link.addEventListener('click',(event) =>
 {
     const myJSON = JSON.stringify(sumAll);
     localStorage.setItem("testJSON", myJSON);
-    window.location.href = "C:/fullstack/fullstackcourse/jsfinalproject/Final%20screen/index.html"  + "?name=" + name + "&email=" + email;
+    window.location.href = "C:/FullStack/jsfinalproject/FinalScreen/index.html"  + "?name=" + name + "&email=" + email;
 });
 
 // *** POPUP ***
@@ -248,6 +250,7 @@ let full_name_value = "";
 let email_field = document.getElementById("eMail");
 let email_value = "";
 let submitBtn = document.getElementById("form-submit");
+let targilBack = urlParams.get('targil');
 
 submitBtn.addEventListener ("click", (event) => {
 
@@ -262,6 +265,35 @@ submitBtn.addEventListener ("click", (event) => {
     } else {
         full_name_value = full_name_field.value;
         email_value = email_field.value;
-        window.location.href = "file:///C:/fullstack/fullstackcourse/jsfinalproject/Calculator/calculator.html" + "?name=" + full_name_value + "&email=" + email_value;
+        window.location.href = "C:/FullStack/jsfinalproject/Calculator/calculator.html" + "?name=" + full_name_value + "&email=" + email_value + "&targil=" + targilBack;
     }
 })
+// לאחר הגעה מקישור של מייל ביצוע התרגיל
+if(targilBack != null)
+{
+    screen.innerText = targilBack;
+    let targilBackArr = targilBack.split("");
+    let firstNum = "";
+    for(let i=0;i<targilBackArr.length;i++)
+    {
+        if(targilBackArr[i] != "+" && targilBackArr[i] != "-" && targilBackArr[i] != "*" && targilBackArr[i] != "/" && op == "")// כאשר כבר הוקלדה ספרה אבל עדיין לא הוקלד אופרטור, יוצר את המספר שלפני האופרטור
+            firstNum += targilBackArr[i];// מגדיר את הסיכום עד כה. המספר הזה יחושב יחד אם המספר שיקליד המשתמש בהמשך אחרי האופרטור
+        else if(targilBackArr[i] == "+" || targilBackArr[i] == "-" || targilBackArr[i] == "*" || targilBackArr[i] == "/")
+            op = targilBackArr[i]; // כאשר כבר הוקלד אופרטור, יוצר את המספר שלאחר האופרטור
+        else
+            lstNum += targilBackArr[i]; // מגדיר את המספר האחרון שהוקלד
+    }
+    sum = parseInt(firstNum);
+    lstNumInt = parseInt(lstNum);
+    calcOp.forEach(button =>
+        {
+            button.disabled = true;
+            button.style.cursor = 'auto';
+        })
+    nums.forEach(button => {
+        button.disabled = true;
+        button.style.cursor = 'auto';
+    });
+    document.getElementById('equal').disabled = false;
+    document.getElementById('equal').style.cursor = 'pointer';
+}
