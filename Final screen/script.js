@@ -56,7 +56,7 @@ submitBtns.forEach(submitBtn => {
 
         // מביא את התרגיל מהשדה הרלוונטי ושומר כל פרט בו במערך
         const targilFirst = submitBtn.parentNode.querySelector(".targil").value.split('');
-        let targil_Final = ""
+        let targil_Final = "";
         // בדיקה שהשדות בטופס מלאים
         if (targilFirst == "") {
             alert("Please enter targil")
@@ -83,20 +83,19 @@ submitBtns.forEach(submitBtn => {
             }
         })
         // מייצר את הלינק הסופי לשיתוף
-        shared_url = "file:///C:/fullstack/fullstackcourse/jsfinalproject/Calculator/calculator.html?"+ "source=share%26" + "targil=" + targil_Final + "&source=share";
+        shared_url = "file:///C:/FullStack/jsfinalproject/Calculator/calculator.html?"+ "source=share%26" + "targil=" + targil_Final + "&source=share";
         // מזהה איזה פופאפ פתוח, ווצאפ או מייל, מעדכן את הלינק הסופי ומעביר את הגולש לעמוד הרלוונטי
         if (wa_popup_back.style.display == "block") {
-            phone_field_value = phone_field.value
+            phone_field_value = phone_field.value;
             window.open("https://wa.me/" + phone_field_value + "?text=Try%20this%20cool%20calculator:%20" + shared_url, '_blank');
         } else if (email_popup_back.style.display == "block") {
-            email_field_value = email_field.value
+            email_field_value = email_field.value;
             window.open("https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=" + email_field_value + "&su=Check out this cool CALCULATOR&body=" + shared_url, '_blank');
         } else {
             alert("please try again")
         }
     }})
 } )
-
 
 // כפתור המחזיר בחזרה למחשבון עם פרטי המשתמש
 back_btn.addEventListener('click', (event) => {
@@ -107,10 +106,13 @@ back_btn.addEventListener('click', (event) => {
 let text = localStorage.getItem("testJSON");
 let sumAll = JSON.parse(text);
 let hisCalc = document.getElementById('HistoryCalc');
+if(sumAll.length > 7)
+    document.getElementById('HistoryCalc').style.overflowY = 'scroll';
 for(let i=0;i<sumAll.length;i++)
 {
     let exercise = document.createElement('p');
     exercise.innerText = i+1+". "+ sumAll[i];
-    exercise.style.fontSize = 30+'px';
+    exercise.style.fontSize = '20px';
+    exercise.style.margin = '15px';
     hisCalc.appendChild(exercise);
 }
