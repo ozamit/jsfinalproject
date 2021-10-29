@@ -148,7 +148,7 @@ link.addEventListener('click',(event) =>
 {
     const myJSON = JSON.stringify(sumAll);
     localStorage.setItem("testJSON", myJSON);
-    window.location.href = "C:/FullStack/jsfinalproject/FinalScreen/index.html"  + "?name=" + name + "&email=" + email;
+    window.location.href = "file:///C:/fullstack/fullstackcourse/jsfinalproject/Final%20screen/index.html"  + "?name=" + name + "&email=" + email;
 });
 
 // *** POPUP ***
@@ -180,7 +180,7 @@ submitBtn.addEventListener ("click", (event) => {
     } else {
         full_name_value = full_name_field.value;
         email_value = email_field.value;
-        window.location.href = "C:/FullStack/jsfinalproject/Calculator/calculator.html" + "?name=" + full_name_value + "&email=" + email_value + "&targil=" + targilBack;
+        window.location.href = "file:///C:/fullstack/fullstackcourse/jsfinalproject/Final%20screen/index.html" + "?name=" + full_name_value + "&email=" + email_value + "&targil=" + targilBack;
     }
 })
 // לאחר הגעה מקישור של מייל ביצוע התרגיל
